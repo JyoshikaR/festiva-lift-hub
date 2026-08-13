@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as BusinessRouteImport } from './routes/business'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
+import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as PowerBiRouteImport } from './routes/power-bi'
+import { Route as FestivalsIndexRouteImport } from './routes/festivals.index'
+import { Route as FestivalsSlugRouteImport } from './routes/festivals.$slug'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsIdRouteImport } from './routes/products.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderConfirmationRoute = OrderConfirmationRouteImport.update({
+  id: '/order-confirmation',
+  path: '/order-confirmation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PowerBiRoute = PowerBiRouteImport.update({
+  id: '/power-bi',
+  path: '/power-bi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FestivalsIndexRoute = FestivalsIndexRouteImport.update({
+  id: '/festivals/',
+  path: '/festivals/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FestivalsSlugRoute = FestivalsSlugRouteImport.update({
+  id: '/festivals/$slug',
+  path: '/festivals/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIdRoute = ProductsIdRouteImport.update({
+  id: '/products/$id',
+  path: '/products/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
+  '/orders': typeof OrdersRoute
+  '/power-bi': typeof PowerBiRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/products/$id': typeof ProductsIdRoute
+  '/festivals/': typeof FestivalsIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
+  '/orders': typeof OrdersRoute
+  '/power-bi': typeof PowerBiRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/products/$id': typeof ProductsIdRoute
+  '/festivals': typeof FestivalsIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
+  '/orders': typeof OrdersRoute
+  '/power-bi': typeof PowerBiRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/products/$id': typeof ProductsIdRoute
+  '/festivals/': typeof FestivalsIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/business'
+    | '/cart'
+    | '/checkout'
+    | '/order-confirmation'
+    | '/orders'
+    | '/power-bi'
+    | '/festivals/$slug'
+    | '/products/$id'
+    | '/festivals/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/business'
+    | '/cart'
+    | '/checkout'
+    | '/order-confirmation'
+    | '/orders'
+    | '/power-bi'
+    | '/festivals/$slug'
+    | '/products/$id'
+    | '/festivals'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/business'
+    | '/cart'
+    | '/checkout'
+    | '/order-confirmation'
+    | '/orders'
+    | '/power-bi'
+    | '/festivals/$slug'
+    | '/products/$id'
+    | '/festivals/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  BusinessRoute: typeof BusinessRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  OrderConfirmationRoute: typeof OrderConfirmationRoute
+  OrdersRoute: typeof OrdersRoute
+  PowerBiRoute: typeof PowerBiRoute
+  FestivalsSlugRoute: typeof FestivalsSlugRoute
+  ProductsIdRoute: typeof ProductsIdRoute
+  FestivalsIndexRoute: typeof FestivalsIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-confirmation': {
+      id: '/order-confirmation'
+      path: '/order-confirmation'
+      fullPath: '/order-confirmation'
+      preLoaderRoute: typeof OrderConfirmationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/power-bi': {
+      id: '/power-bi'
+      path: '/power-bi'
+      fullPath: '/power-bi'
+      preLoaderRoute: typeof PowerBiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/festivals/': {
+      id: '/festivals/'
+      path: '/festivals'
+      fullPath: '/festivals/'
+      preLoaderRoute: typeof FestivalsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/festivals/$slug': {
+      id: '/festivals/$slug'
+      path: '/festivals/$slug'
+      fullPath: '/festivals/$slug'
+      preLoaderRoute: typeof FestivalsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$id': {
+      id: '/products/$id'
+      path: '/products/$id'
+      fullPath: '/products/$id'
+      preLoaderRoute: typeof ProductsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  BusinessRoute: BusinessRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  OrderConfirmationRoute: OrderConfirmationRoute,
+  OrdersRoute: OrdersRoute,
+  PowerBiRoute: PowerBiRoute,
+  FestivalsSlugRoute: FestivalsSlugRoute,
+  ProductsIdRoute: ProductsIdRoute,
+  FestivalsIndexRoute: FestivalsIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -18,13 +18,14 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 
-type ProductSearch = { q?: string; festival?: string };
+type ProductSearch = { q?: string | undefined; festival?: string | undefined };
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (search: Record<string, unknown>): ProductSearch => ({
-    q: typeof search.q === "string" ? search.q : undefined,
-    festival: typeof search.festival === "string" ? search.festival : undefined,
+    q: typeof search["q"] === "string" ? search["q"] : undefined,
+    festival: typeof search["festival"] === "string" ? search["festival"] : undefined,
   }),
+
   head: () => ({
     meta: [
       { title: "All Festival Products — Festiva" },

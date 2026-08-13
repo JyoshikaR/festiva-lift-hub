@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FestivalsIndexRouteImport } from './routes/festivals.index'
+import { Route as FestivalsSlugRouteImport } from './routes/festivals.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FestivalsIndexRoute = FestivalsIndexRouteImport.update({
+  id: '/festivals/',
+  path: '/festivals/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FestivalsSlugRoute = FestivalsSlugRouteImport.update({
+  id: '/festivals/$slug',
+  path: '/festivals/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/festivals/': typeof FestivalsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/festivals': typeof FestivalsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/festivals/': typeof FestivalsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/festivals/$slug' | '/festivals/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/festivals/$slug' | '/festivals'
+  id: '__root__' | '/' | '/festivals/$slug' | '/festivals/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FestivalsSlugRoute: typeof FestivalsSlugRoute
+  FestivalsIndexRoute: typeof FestivalsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/festivals/': {
+      id: '/festivals/'
+      path: '/festivals'
+      fullPath: '/festivals/'
+      preLoaderRoute: typeof FestivalsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/festivals/$slug': {
+      id: '/festivals/$slug'
+      path: '/festivals/$slug'
+      fullPath: '/festivals/$slug'
+      preLoaderRoute: typeof FestivalsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FestivalsSlugRoute: FestivalsSlugRoute,
+  FestivalsIndexRoute: FestivalsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

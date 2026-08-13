@@ -10,10 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as BusinessRouteImport } from './routes/business'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
 import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as PowerBiRouteImport } from './routes/power-bi'
 import { Route as FestivalsIndexRouteImport } from './routes/festivals.index'
 import { Route as FestivalsSlugRouteImport } from './routes/festivals.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
@@ -22,6 +25,16 @@ import { Route as ProductsIdRouteImport } from './routes/products.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartRoute = CartRouteImport.update({
@@ -42,6 +55,11 @@ const OrderConfirmationRoute = OrderConfirmationRouteImport.update({
 const OrdersRoute = OrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PowerBiRoute = PowerBiRouteImport.update({
+  id: '/power-bi',
+  path: '/power-bi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FestivalsIndexRoute = FestivalsIndexRouteImport.update({
@@ -67,10 +85,13 @@ const ProductsIdRoute = ProductsIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/orders': typeof OrdersRoute
+  '/power-bi': typeof PowerBiRoute
   '/festivals/$slug': typeof FestivalsSlugRoute
   '/products/$id': typeof ProductsIdRoute
   '/festivals/': typeof FestivalsIndexRoute
@@ -78,10 +99,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/orders': typeof OrdersRoute
+  '/power-bi': typeof PowerBiRoute
   '/festivals/$slug': typeof FestivalsSlugRoute
   '/products/$id': typeof ProductsIdRoute
   '/festivals': typeof FestivalsIndexRoute
@@ -90,10 +114,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/orders': typeof OrdersRoute
+  '/power-bi': typeof PowerBiRoute
   '/festivals/$slug': typeof FestivalsSlugRoute
   '/products/$id': typeof ProductsIdRoute
   '/festivals/': typeof FestivalsIndexRoute
@@ -103,10 +130,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/analytics'
+    | '/business'
     | '/cart'
     | '/checkout'
     | '/order-confirmation'
     | '/orders'
+    | '/power-bi'
     | '/festivals/$slug'
     | '/products/$id'
     | '/festivals/'
@@ -114,10 +144,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/analytics'
+    | '/business'
     | '/cart'
     | '/checkout'
     | '/order-confirmation'
     | '/orders'
+    | '/power-bi'
     | '/festivals/$slug'
     | '/products/$id'
     | '/festivals'
@@ -125,10 +158,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/analytics'
+    | '/business'
     | '/cart'
     | '/checkout'
     | '/order-confirmation'
     | '/orders'
+    | '/power-bi'
     | '/festivals/$slug'
     | '/products/$id'
     | '/festivals/'
@@ -137,10 +173,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  BusinessRoute: typeof BusinessRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   OrderConfirmationRoute: typeof OrderConfirmationRoute
   OrdersRoute: typeof OrdersRoute
+  PowerBiRoute: typeof PowerBiRoute
   FestivalsSlugRoute: typeof FestivalsSlugRoute
   ProductsIdRoute: typeof ProductsIdRoute
   FestivalsIndexRoute: typeof FestivalsIndexRoute
@@ -154,6 +193,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cart': {
@@ -182,6 +235,13 @@ declare module '@tanstack/react-router' {
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/power-bi': {
+      id: '/power-bi'
+      path: '/power-bi'
+      fullPath: '/power-bi'
+      preLoaderRoute: typeof PowerBiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/festivals/': {
@@ -217,10 +277,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  BusinessRoute: BusinessRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   OrderConfirmationRoute: OrderConfirmationRoute,
   OrdersRoute: OrdersRoute,
+  PowerBiRoute: PowerBiRoute,
   FestivalsSlugRoute: FestivalsSlugRoute,
   ProductsIdRoute: ProductsIdRoute,
   FestivalsIndexRoute: FestivalsIndexRoute,

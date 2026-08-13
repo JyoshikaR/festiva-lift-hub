@@ -298,6 +298,7 @@ function AnalyticsPage() {
               innerRadius={55}
               outerRadius={95}
               paddingAngle={3}
+              isAnimationActive={false}
             >
               {regions.map((_, i) => (
                 <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />

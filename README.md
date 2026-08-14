@@ -41,7 +41,7 @@ Businesses may spend money promoting products without knowing which products are
 Solution:
 Festiva identifies high-lift products and festival demand patterns, helping businesses make more informed promotional decisions.
 
-________________________________________________ Our Complete Solution__________________________________________________________________________________
+___________________ Our Complete Solution___________________ :
 
 Festiva is a smart festival marketplace and analytics platform that connects customer shopping with business intelligence.
 
@@ -69,9 +69,8 @@ Identify high-demand products
 Analyze festival performance
 Understand demand trends
 Make better inventory and marketing decisions
-___________________________________________________________________________________________________________________________________________________________________
                                                                             EXAMPLE
-___________________________________________________________________________________________________________________________________________________________________
+
 
 Suppose a business normally sells 100 Diyas.
 

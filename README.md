@@ -1018,52 +1018,6 @@ CODE QUALITY:
 
 - Comments for important logic
 
-- No Lorem Ipsum
-
-- No broken links
-
-- No empty image boxes
-
-- No large blank spaces
-
-- All navigation buttons should work
-
-- All cart functionality should work
-
-- Festival Lift calculation should work
-
-- Responsive on desktop/tablet/mobile
-
-- Use realistic Indian festival data
-
-FINAL VISUAL REQUIREMENT:
-
-The homepage should feel like a polished real-world startup/hackathon product, combining:
-
-Festival Marketplace + Indian Festival Visuals + E-commerce + Data Analytics + Festival Lift Quantification.
-
-The main message should be immediately understandable:
-
-“Customers shop for everything they need for festivals, while businesses use Festival Lift Analytics to understand demand increases and plan inventory.”
-
-Use the attached reference image as the visual direction and improve it with more festivals, richer festival photographs, colorful sections, attractive professional icons, better product imagery, and a polished analytics experience. give the prototype
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://festiva-lift-hub.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/f40597fa-bf9d-44ef-877a-5840c4eca4f5).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
 git clone <this-repository-url>
 cd <repository-name>

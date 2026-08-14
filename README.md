@@ -1,4 +1,6 @@
-1. Unpredictable festival demand
+ MAJOR PROBLEM :
+ 
+ 1. Unpredictable festival demand
 
 During festivals, demand for products can suddenly increase, but businesses often cannot accurately estimate which products will sell more and by how much.
 
@@ -39,7 +41,7 @@ Businesses may spend money promoting products without knowing which products are
 Solution:
 Festiva identifies high-lift products and festival demand patterns, helping businesses make more informed promotional decisions.
 
-🚀 Our Complete Solution
+________________________________________________ Our Complete Solution__________________________________________________________________________________
 
 Festiva is a smart festival marketplace and analytics platform that connects customer shopping with business intelligence.
 
@@ -67,7 +69,9 @@ Identify high-demand products
 Analyze festival performance
 Understand demand trends
 Make better inventory and marketing decisions
-📊 Example
+___________________________________________________________________________________________________________________________________________________________________
+                                                                            EXAMPLE
+___________________________________________________________________________________________________________________________________________________________________
 
 Suppose a business normally sells 100 Diyas.
 
